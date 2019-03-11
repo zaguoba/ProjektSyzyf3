@@ -25,7 +25,7 @@ using Windows.Devices.Gpio;
 using Windows.Devices.Spi;
 using Windows.Devices.Enumeration;
 
-//using Microsoft.IoT.Lightning.Providers;
+using Microsoft.IoT.Lightning.Providers;
 
 namespace projektSyzyf3
 {
@@ -78,10 +78,10 @@ namespace projektSyzyf3
 
         public void InitGPIO()
         {
-            //if (LightningProvider.IsLightningEnabled)
-            //{
-            //    LowLevelDevicesController.DefaultProvider = LightningProvider.GetAggregateProvider();
-            //}
+            if (LightningProvider.IsLightningEnabled)
+            {
+                LowLevelDevicesController.DefaultProvider = LightningProvider.GetAggregateProvider();
+            }
 
             // Get the default GPIO controller on the system
             GpioController gpio = GpioController.GetDefault();
