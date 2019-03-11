@@ -1,0 +1,128 @@
+        //bbSPI
+        //MODE(0,0)
+        //while (bbSpiProgress != 19) // finale transmito
+        //{
+        //    if (bbSpiProgress == -3)
+        //    {
+        //        if (SSP.CLK2.Read().Equals(GpioPinValue.Low))
+        //        {
+        //            bbSpiProgress = -2;
+        //        }
+        //    }
+        //    if (bbSpiProgress == -2)
+        //    {
+        //        if (SSP.CLK2.Read().Equals(GpioPinValue.High))
+        //        {
+        //            SSP._CS0.Write(GpioPinValue.Low);
+        //            bbSpiProgress = -1;
+        //        }
+        //    }
+        //    if (bbSpiProgress == -1 && SSP.CLK2.Read().Equals(GpioPinValue.Low))
+        //    {
+        //        //SSP._CS0.Write(GpioPinValue.Low);
+        //        //SSP.DIO.Write(GpioPinValue.Low); //first element of write command is 0 anyway
+        //        bbSpiProgress = 0;
+        //    }
+        //    if (0 <= bbSpiProgress && bbSpiProgress <= 16)
+        //    {
+        //        SSP.aSCLK.Write(SSP.CLK2.Read()); //duplicate CLK signal for bbSPI
+
+        //        if (SSP.CLK2.Read().Equals(GpioPinValue.Low) && bbSpiCLKount == 1)
+        //        {
+        //            bbSpiCLKount = 0; //currently on LOW half of SCLK
+
+        //            if (bbSpiProgress <= 15)
+        //            {
+        //                if (inversed[bbSpiProgress] == '0')
+        //                {
+        //                    SSP.DIO.Write(GpioPinValue.Low);
+        //                }
+        //                if (inversed[bbSpiProgress] == '1')
+        //                {
+        //                    SSP.DIO.Write(GpioPinValue.High);
+        //                }
+        //            }
+        //            if (bbSpiProgress == 16)
+        //            {
+        //                SSP.DIO.Write(GpioPinValue.Low);
+        //            }
+
+        //            bbSpiProgress++; //character sent
+
+        //        }
+        //        if (SSP.CLK2.Read().Equals(GpioPinValue.High) && bbSpiCLKount == 0)
+        //        {
+        //            bbSpiCLKount = 1; //currently on HIGH half of SCLK
+        //        }
+
+        //    }
+        //    if (bbSpiProgress == 17)
+        //    {
+        //        SSP.aSCLK.Write(GpioPinValue.Low);
+        //        if (SSP.CLK2.Read().Equals(GpioPinValue.High))
+        //        {
+        //            SSP._CS0.Write(GpioPinValue.High);
+        //            bbSpiProgress = 19;
+        //        }
+        //    }
+        //}
+
+        //MODE(1,1)
+        //while (bbSpiProgress != 19) // finale transmit, value is a subject to change
+        //{
+        //    if (bbSpiProgress == -2)
+        //    {
+        //        if (SSP.CLK2.Read().Equals(GpioPinValue.High))
+        //        {
+        //            bbSpiProgress = -1;
+        //        }
+        //    }
+        //    if (bbSpiProgress == -1 && SSP.CLK2.Read().Equals(GpioPinValue.Low))
+        //    {
+        //        SSP._CS0.Write(GpioPinValue.Low);
+        //        //SSP.DIO.Write(GpioPinValue.Low); //first element of write command is 0 anyway
+        //        bbSpiProgress = 0;
+        //    }
+        //    if (0 <= bbSpiProgress && bbSpiProgress <= 16)
+        //    {
+        //        SSP.aSCLK.Write(SSP.CLK2.Read()); //duplicate CLK signal for bbSPI
+
+        //        if (SSP.CLK2.Read().Equals(GpioPinValue.Low) && bbSpiCLKount == 1)
+        //        {
+        //            bbSpiCLKount = 0; //currently on LOW half of SCLK
+
+        //            if (bbSpiProgress <= 15)
+        //            {
+        //                if (inversed[bbSpiProgress] == '0')
+        //                {
+        //                    SSP.DIO.Write(GpioPinValue.Low);
+        //                }
+        //                if (inversed[bbSpiProgress] == '1')
+        //                {
+        //                    SSP.DIO.Write(GpioPinValue.High);
+        //                }
+        //            }
+        //            if (bbSpiProgress == 16)
+        //            {
+        //                SSP.DIO.Write(GpioPinValue.Low);
+        //            }
+
+        //            bbSpiProgress++; //character sent
+
+        //        }
+        //        if (SSP.CLK2.Read().Equals(GpioPinValue.High) && bbSpiCLKount == 0)
+        //        {
+        //            bbSpiCLKount = 1; //currently on HIGH half of SCLK
+        //        }
+
+        //    }
+        //    if (bbSpiProgress == 17)
+        //    {
+        //        SSP.aSCLK.Write(GpioPinValue.Low);
+        //        if (SSP.CLK2.Read().Equals(GpioPinValue.High))
+        //        {
+        //            SSP._CS0.Write(GpioPinValue.High);
+        //            bbSpiProgress = 19;
+        //        }
+        //    }
+        //}

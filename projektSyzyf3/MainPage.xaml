@@ -1,0 +1,62 @@
+﻿<Page
+    x:Class="projektSyzyf3.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:projektSyzyf3"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Page.Resources>
+        <local:NullableBooleanToBooleanConverter x:Key="NullableBooleanToBooleanConverter"/>
+    </Page.Resources>
+
+    <Grid x:Name="gridgrid" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Button x:Name="connect" Content="Połącz" HorizontalAlignment="Left" Height="65" Margin="724,45,0,0" VerticalAlignment="Top" Width="252" Click="connect_Click"/>
+        <Button x:Name="funButton" Content="FUN" HorizontalAlignment="Left" Height="65" Margin="724,138,0,0" VerticalAlignment="Top" Width="252" Click="funButton_Click" IsEnabled="False"/>
+        <TextBox x:Name="results" HorizontalAlignment="Left" Margin="94,45,0,0" Text="" VerticalAlignment="Top" Height="678" Width="608" TextWrapping="Wrap">
+            <FlyoutBase.AttachedFlyout>
+                <Flyout Placement="Top">
+                    <Grid>
+                        <TextBlock x:Name="progText" HorizontalAlignment="Center" Height="26" Margin="0,0,0,0" Text="Saving..." TextWrapping="Wrap" VerticalAlignment="Center" Width="53"/>
+                    </Grid>
+                </Flyout>
+            </FlyoutBase.AttachedFlyout>
+        </TextBox>
+        <TextBlock HorizontalAlignment="Left" Margin="724,587,0,0" Text="Zmiana konfiguracji przedwzmacniacza:" TextWrapping="Wrap" VerticalAlignment="Top" Height="44" Width="252" TextAlignment="Center"/>
+        <TextBlock HorizontalAlignment="Left" Margin="896,645,0,0" Text="Kanał:" TextWrapping="Wrap" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Margin="738,645,0,0" Text="Wzmocnienie:" TextWrapping="Wrap" VerticalAlignment="Top"/>
+        <ComboBox x:Name="gainCombo" HorizontalAlignment="Left" Height="42" Margin="724,681,0,0" VerticalAlignment="Top" Width="120">
+            <ComboBoxItem Content="1" Height="30" Width="100" Tag="0" IsSelected="True"/>
+            <ComboBoxItem Content="2" Height="30" Width="100" Tag="16"/>
+            <ComboBoxItem Content="5" Height="30" Width="100" Tag="32"/>
+            <ComboBoxItem Content="10" Height="30" Width="100" Tag="48"/>
+            <ComboBoxItem Content="20" Height="30" Width="100" Tag="64"/>
+            <ComboBoxItem Content="50" Height="30" Width="100" Tag="80"/>
+            <ComboBoxItem Content="100" Height="30" Width="100" Tag="96"/>
+            <ComboBoxItem Content="200" Height="30" Width="100" Tag="112"/>
+        </ComboBox>
+        <ComboBox x:Name="channelCombo" HorizontalAlignment="Left" Height="42" Margin="856,681,0,0" VerticalAlignment="Top" Width="120">
+            <ComboBoxItem Content="VCAL/CH0" Height="30" Width="130" Tag="0"/>
+            <ComboBoxItem Content="CH1" Height="30" Width="130" Tag="1" IsSelected="True"/>
+            <ComboBoxItem Content="CAL1 (GND)" Height="30" Width="130" Tag="12"/>
+            <ComboBoxItem Content="CAL2 (0.9VCAL)" Height="30" Width="130" Tag="13"/>
+            <ComboBoxItem Content="CAL3 (0.1VCAL)" Height="30" Width="130" Tag="14"/>
+            <ComboBoxItem Content="CAL4 (VREF)" Height="30" Width="130" Tag="15"/>
+        </ComboBox>
+        <Button x:Name="clrButton" Content="CLR" HorizontalAlignment="Left" Height="37" Margin="724,520,0,0" VerticalAlignment="Top" Width="251" Click="clrButton_Click"/>
+        <TextBox x:Name="nSamples" HorizontalAlignment="Left" Margin="738,155,0,0" Text="1000" VerticalAlignment="Top" InputScope="Number" Width="92" IsEnabled="False" KeyDown="NSamples_KeyDown"/>
+        <CheckBox x:Name="refineBox" Content="Refine by" HorizontalAlignment="Left" Margin="724,220,0,0" VerticalAlignment="Top" Width="80" IsChecked="True"/>
+        <ComboBox x:Name="refineByMe" HorizontalAlignment="Left" Margin="851,220,0,0" VerticalAlignment="Top" Width="125" IsEnabled="{x:Bind refineBox.IsChecked, Converter={StaticResource NullableBooleanToBooleanConverter}, Mode=OneWay}">
+            <ComboBoxItem Content="0,01" Height="30" Width="130"/>
+            <ComboBoxItem Content="0,02" Height="30" Width="130"/>
+            <ComboBoxItem Content="0,05" Height="30" Width="130" IsSelected="True"/>
+            <ComboBoxItem Content="0,1" Height="30" Width="130"/>
+            <ComboBoxItem Content="0,2" Height="30" Width="130"/>
+            <ComboBoxItem Content="0,5" Height="30" Width="130"/>
+        </ComboBox>
+        <ProgressBar x:Name="pasekPostepu" HorizontalAlignment="Left" Height="3" Margin="94,723,0,0" VerticalAlignment="Top" Width="608" Maximum="99"/>
+        
+
+    </Grid>
+</Page>
